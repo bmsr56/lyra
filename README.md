@@ -19,4 +19,3 @@ ___
 Missouri S&T Computer Science Department
 CS4099
 Spring 2019
-___
