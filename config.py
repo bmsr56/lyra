@@ -18,20 +18,21 @@ import pychord as pc
 
 class Lyra:
     def __init__(self):
-        self.tuningIndices = [4, 9, 2, 7, 11, 4]
+        self.tuningIndices = [4, 11, 7, 2, 9, 4]
         pass
         
     def chord_to_guitar(self, chordObj) -> List[Tuple[int]]:
-        """
+        """Takes a chord object and returns a list of tuples.
         """
         # NOTE notes in pychord stored [C, C#, D, D#, E, F, F#, G, G# A, A#, B]
         chordIndices = chordObj.components(visible=False)
         # NOTE for C, this is [0, 4, 7]
         for ci in chordIndices:
+            print('Chord index: {}'.format(ci))
             # generate every viable fret for this chord note index
-            for gs in self.tuningIndices:
+            for i, gs in enumerate(self.tuningIndices):
                 fret = (ci - gs) % 12
-                print('Chord index: {}, string: {}, fret: {}'.format(ci, gs, fret)) 
+                print('string: {}, fret: {}'.format(i+1, fret)) 
         return
 
     def print_welcome_msg(self) -> None:
